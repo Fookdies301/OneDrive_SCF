@@ -12,7 +12,7 @@ $config='';
 $oauth = [
     'onedrive_ver' => 0, // 0:默认（支持商业版与个人版） 1:世纪互联
     'redirect_uri' => 'https://scfonedrive.github.io',
-    'refresh_token' => 'OAQABAAAAAACQN9QBRU3jT6bcBQLZNUj7euP_TC0xoDW8m-1oGwcS3vYKlGaE1-ldoRkV2yNBavAmdvQ0w2ofg5fFPi7l_4dRzzaC86M3D9NKakGMAFq2cgWc5VZWVjQor9E8dU8jQjH9JZLh3tVHBNSfsW5GJ5xbccAHXo9m74ERpjeo-XavscA9dgVtMQPNsU0RtR_9mYA6MouHvSooLCbesxzhDtg3NSDF66VK1fPO_sOqmDA1KbTpUq7PTWg-aJkw4nL9lD1iZ9fRUrPKUuYQAak6hWNPq1FNlKeN2XxTRJGITZf8JAepli6IfSRvbdTyMthBzDZJ4tOzSq6Q2tQKZn_5ziTjKGgnPiVBYXeKwIVl0qB5hvMvWgN-c-rP-aV1SKobGejJX7agiZ6dRrqnfQZ4TqHjx9g2-5wS5MMyxdsZmcpeHn6Ip3uxX5DmyBftTfBUizccuit5xa2--xayvudnGixPxIQdIA89UId7BpUbYWCufggZtl6CeufdIVzRWOSPAc7_t_z2J4OEhnRXqmEvUmHbiX3G6ie9ULNEFD7cXgd5MqBKY-V_528q6uvmAs4I4GyBoR9x2j60R5hQqMyB6y5n2AENKZlFV8h-M2M2-s1jLVzGXBgV5TyZ8nPEu_GrSKi0Ar-VysMo7omHlbWc19-6zuNiLQ1h_6eToHhbluBJ3O44FS_P9hEMNSHsxM3wjoW7gfgI4vTMnyHXZGH72CKcrwov66mCLXSFGLRBpjeNyhlxCnmOcWHW3w4KY5nFjJM_t5Bf2Js2-qi83tVSR4N7kKfR5sARF2n_QbWgMuOBhCAA',
+    'refresh_token' => '',
 ];
 $config = [
     'sitename' => getenv('sitename'),
