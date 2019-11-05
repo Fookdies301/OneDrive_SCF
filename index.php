@@ -435,8 +435,8 @@ function adminform($name = '', $pass = '', $path = '')
 	  <form action="" method="post">
 		  <div>
 		    <label>密码</label>
-		    <input name="password1" type="password"/>
-		    <button type="submit">查看</button>
+		    <input class="password" name="password1" type="password"/>
+		    <button class="submit" type="submit">查看</button>
           </div>
 	  </form>
       </center>
@@ -774,7 +774,7 @@ function render_list($path, $files)
         <meta name="keywords" content="<?php echo $n_path;?>,<?php if ($p_path!='') echo $p_path.','; echo $config['sitename'];?>,OneDrive_SCF,auth_by_逸笙">
         <link rel="icon" href="<?php echo $config['base_path'];?>favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="<?php echo $config['base_path'];?>favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="https://logi.ml/favicon.ico">
+        <link rel="shortcut icon" href="//vcheckzen.github.io/favicon.ico">
         <style type="text/css">
             /* latin */
             @font-face {
@@ -796,7 +796,7 @@ function render_list($path, $files)
             .list-header-container{position:relative}
             .list-header-container a.back-link{color:#000;display:inline-block;position:absolute;font-size:16px;margin:20px 10px;padding:10px 10px;vertical-align:middle;text-decoration:none}
             .list-container,.list-header-container,.list-wrapper,a.back-link:hover,body{color:#24292e}
-            .list-header-container .table-header{margin:0;border:0 none;padding:30px 60px;text-align:left;font-weight:400;color:#000;background-color:#f7f7f9}
+            .list-header-container .table-header{line-height:1.3em;margin:0;border:0 none;padding:30px 60px;text-align:left;font-weight:400;color:#000;background-color:#f7f7f9}
             .login{display: inline-table;position: absolute;font-size:16px;padding:30px 20px;vertical-align:middle;right:0px;top:0px}
             .list-body-container{position:relative;left:0;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;background:#fff}
             .list-table{width:100%;padding:20px;border-spacing:0}
@@ -819,11 +819,29 @@ function render_list($path, $files)
             #readme{padding:.5em 0;text-align: left}
 
             @media only screen and (max-width:480px){
+                body{
+                    margin:3px;
+                }
                 .title{margin-bottom: 24px;font-size:1.5em;}
                 .list-wrapper{width:100%; margin-bottom:24px;}
                 .list-table {padding: 1em 0;}
                 .list-table .updated_at, .list-table .updated_at{display:none}
                 .list-table td, .list-table th{padding:0 10px;text-align:left;white-space:nowrap;overflow:auto;max-width:80px}
+            }
+
+            .password {
+                outline: none;
+                border: 0;
+                border-radius:1em;
+                line-height:1.6em;
+                padding-left:1em;
+                background:aliceblue;
+            }
+
+            .submit {
+                outline:none;
+                border:0;
+                border-radius:1em;
             }
         </style>
     </head>
@@ -1082,8 +1100,8 @@ function render_list($path, $files)
 	<center><h4>输入密码进行查看</h4>
 	  <form action="" method="post">
 		    <label>密码</label>
-		    <input name="password1" type="password"/>
-		    <button type="submit">查看</button>
+		    <input class="password" name="password1" type="password"/>
+		    <button class="submit" type="submit">查看</button>
 	  </form>
     </center>
 </div>';
@@ -1093,7 +1111,7 @@ function render_list($path, $files)
             </div>
         </div>
     </div>
-    <div id="mask" style="position:absolute;display:none;left:0px;top:0px;width:100%;background-color:#000;filter:alpha(opacity=50);opacity:0.5"></div>
+    <div id="mask" style="border-radius:0;position:absolute;display:none;left:0px;top:0px;width:100%;background-color:#000;filter:alpha(opacity=50);opacity:0.5"></div>
     <?php if ($config['admin']) { ?>
 <div>    
     <div id="rename_div" name="operatediv" style="position: absolute;border: 10px #CCCCCC;background-color: #FFFFCC; display:none">
@@ -1168,14 +1186,14 @@ if (isset($files['children'])) foreach ($files['children'] as $file) {
 </div>
     <?php } else {
         if (getenv('admin')!='') { ?>
-        <div id="login_div" style="position: absolute;border: 1px #CCCCCC;background-color: #FFFFCC; display:none">
+        <div id="login_div" style="position: absolute;background-color: white; display:none;top:25%">
             <div style="margin:50px">
-            <a onclick="operatediv_close('login')" style="position: absolute;right: 10px;top:5px;">关闭</a>
+            <a onclick="operatediv_close('login')" style="position: absolute;right: 15px;top:15px;">关闭</a>
 	  <center><h4>输入管理密码</h4>
 	  <form action="<?php echo $_GET['preview']?'?preview&':'?';?>admin" method="post">
 		    <label>密码</label>
-		    <input id="login_input" name="password1" type="password"/>
-		    <button type="submit">查看</button>
+            <input id="login_input" class="password" name="password1" type="password"/>
+		    <button class="submit" type="submit">查看</button>
 	  </form>
       </center>
       </div>
@@ -1709,7 +1727,7 @@ function serializeForm(formId) {
             document.getElementById('mask').style.height=document.documentElement.scrollHeight<window.innerHeight?window.innerHeight:document.documentElement.scrollHeight+'px';
             document.getElementById('login_div').style.display='';
             document.getElementById('login_div').style.left=(document.body.clientWidth-document.getElementById('login_div').offsetWidth)/2 +'px';
-            document.getElementById('login_div').style.top=(window.innerHeight-document.getElementById('login_div').offsetHeight)/2+document.body.scrollTop +'px';
+            // document.getElementById('login_div').style.top=(window.innerHeight-document.getElementById('login_div').offsetHeight)/2+document.body.scrollTop +'px';
             document.getElementById('login_input').focus();
         }
 <?php } ?>
