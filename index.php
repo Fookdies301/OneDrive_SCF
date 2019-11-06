@@ -1734,6 +1734,7 @@ function serializeForm(formId) {
     </script>
     <script src="//s0.pstatp.com/cdn/expire-1-M/ionicons/4.5.6/ionicons.js"></script>
     <!-- <script src="//unpkg.zhimg.com/ionicons@4.4.4/dist/ionicons.js"></script> -->
+    <script opacity='0.4' zIndex="-2" count="66" src="//s0.pstatp.com/cdn/expire-1-M/canvas-nest.js/2.0.4/canvas-nest.js"></script>
     </html>
     <?php
     $html=ob_get_clean();
