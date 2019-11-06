@@ -762,7 +762,7 @@ function render_list($path, $files)
     <!DOCTYPE html>
     <html lang="zh-cn">
     <head>
-        <script>if (location.protocol === 'http:') location.href = location.href.replace(/http/, 'https');</script>
+        <!-- <script>if (location.protocol === 'http:') location.href = location.href.replace(/http/, 'https');</script> -->
         <title><?php echo $pretitle;?> - <?php echo $config['sitename'];?></title>
         <!--
             帖子 ： https://www.hostloc.com/thread-561971-1-1.html
