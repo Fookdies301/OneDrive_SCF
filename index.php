@@ -1724,8 +1724,8 @@ function serializeForm(formId) {
             document.getElementById('mask').style.display='initial';
             const max=(a,b)=>a>b?a:b;
             document.getElementById('mask').style.height=max(window.innerHeight,document.scrollingElement.scrollHeight)+'px';
+            document.getElementById('login_div').style.display='initial';
             document.getElementById('login_input').focus();
-            document.getElementById('login_div').style.display='';
         }
 <?php } ?>
     </script>
