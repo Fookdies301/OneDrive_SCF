@@ -785,7 +785,7 @@ function render_list($path, $files)
                 unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
             }
             input:focus,textarea:focus {outline: none;}
-            div,textarea,video{border-radius:25px}            
+            div,textarea,video{border-radius:15px}            
             body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;background-color:#f7f7f9;color:#000}
             a{color:#24292e;cursor:pointer;text-decoration:none}
             a:hover{color:#24292e}
@@ -1186,8 +1186,7 @@ if (isset($files['children'])) foreach ($files['children'] as $file) {
 </div>
     <?php } else {
         if (getenv('admin')!='') { ?>
-        <div id="login_div" style="position: absolute;background-color: white; display:none;top:25%">
-            <div style="margin:50px">
+        <div id="login_div" style="border-radius:1em;position:absolute;background-color:white;display:none;top:25%;width:25em;left:calc((100% - 25em) / 2);height:8em">
             <a onclick="operatediv_close('login')" style="position: absolute;right: 15px;top:15px;">关闭</a>
 	  <center><h4>输入管理密码</h4>
 	  <form action="<?php echo $_GET['preview']?'?preview&':'?';?>admin" method="post">
@@ -1196,7 +1195,6 @@ if (isset($files['children'])) foreach ($files['children'] as $file) {
 		    <button class="submit" type="submit">查看</button>
 	  </form>
       </center>
-      </div>
 	</div>
     <?php }
     } ?>
@@ -1374,10 +1372,9 @@ if ($config['admin']) { //管理登录后 ?>
                 $operatediv[$i].style.display='none';
             }
             document.getElementById('mask').style.display='';
-            //document.getElementById('mask').style.width=document.documentElement.scrollWidth+'px';
-            document.getElementById('mask').style.height=document.documentElement.scrollHeight<window.innerHeight?window.innerHeight:document.documentElement.scrollHeight+'px';
-            if (num=='') {
-                var str='';
+            const max=(a,b)=>a>b?a:b;
+            document.getElementById('mask').style.height=max(window.innerHeight,document.scrollingElement.scrollHeight)+'px';            if (num=='') {
+            var str='';
             } else {
                 var str=document.getElementById('file_a'+num).innerText;
                 if (str.substr(-1)==' ') str=str.substr(0,str.length-1);
@@ -1722,19 +1719,22 @@ function serializeForm(formId) {
 <?php } else if (getenv('admin')!='') { ?>
         function login()
         {
-            document.getElementById('mask').style.display='';
-            //document.getElementById('mask').style.width=document.documentElement.scrollWidth+'px';
-            document.getElementById('mask').style.height=document.documentElement.scrollHeight<window.innerHeight?window.innerHeight:document.documentElement.scrollHeight+'px';
-            document.getElementById('login_div').style.display='';
-            document.getElementById('login_div').style.left=(document.body.clientWidth-document.getElementById('login_div').offsetWidth)/2 +'px';
-            // document.getElementById('login_div').style.top=(window.innerHeight-document.getElementById('login_div').offsetHeight)/2+document.body.scrollTop +'px';
+
+            // document.body.style = '';
+            document.getElementById('mask').style.display='initial';
+            const max=(a,b)=>a>b?a:b;
+            document.getElementById('mask').style.height=max(window.innerHeight,document.scrollingElement.scrollHeight)+'px';
             document.getElementById('login_input').focus();
+            document.getElementById('login_div').style.display='';
         }
 <?php } ?>
     </script>
     <script src="//s0.pstatp.com/cdn/expire-1-M/ionicons/4.5.6/ionicons.js"></script>
     <!-- <script src="//unpkg.zhimg.com/ionicons@4.4.4/dist/ionicons.js"></script> -->
     <script opacity='0.4' zIndex="-2" count="66" src="//s0.pstatp.com/cdn/expire-1-M/canvas-nest.js/2.0.4/canvas-nest.js"></script>
+    <script>
+        document.body.style = '';
+    </script>
     </html>
     <?php
     $html=ob_get_clean();
