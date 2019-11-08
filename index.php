@@ -799,13 +799,13 @@ function render_list($path, $files)
             .list-header-container .table-header{line-height:1.3em;margin:0;border:0 none;padding:30px 60px;text-align:left;font-weight:400;color:#000;background-color:#f7f7f9}
             .login{display: inline-table;position: absolute;font-size:16px;padding:30px 20px;vertical-align:middle;right:0px;top:0px}
             .list-body-container{position:relative;left:0;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;background:#fff}
-            .list-table{width:100%;padding:20px;border-spacing:0}
+            .list-table{width:100%;padding:10px;border-spacing:0}
             .list-table tr{height:40px}
             .list-table tr[data-to]:hover{background:#f1f1f1}
             .list-table tr:first-child{background:#fff}
             .list-table td,.list-table th{text-overflow:ellipsis;text-align:left;padding: 0 5px;white-space:nowrap;overflow:hidden;max-width:5em;}
             .list-table .size,.list-table .updated_at{text-align:right}
-            .list-table .file ion-icon{font-size:15px;margin-right:5px;vertical-align:bottom}
+            .list-table .file ion-icon{font-size:15px;margin-right:0px;vertical-align:bottom}
             .list-table .size{border-radius:0px 25px 25px 0px}
             .list-table .file{border-radius:25px 0px 0px 25px}
 <?php if ($config['admin']) { ?>
