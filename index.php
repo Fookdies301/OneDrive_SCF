@@ -815,7 +815,7 @@ function render_list($path, $files)
             .operate ul li{padding:1px;list-style:none;}
             .operatediv_close{position: absolute;right: 3px;top:3px;}
 <?php } ?>
-            .readme{padding:1.5em;background-color: #fff;}
+            .readme{padding:10px;background-color: #fff;}
             #readme{padding:.5em 0;text-align: left}
 
             @media only screen and (max-width:480px){
