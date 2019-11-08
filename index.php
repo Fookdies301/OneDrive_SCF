@@ -1199,6 +1199,21 @@ if (isset($files['children'])) foreach ($files['children'] as $file) {
     <?php }
     } ?>
     <font color="#f7f7f9"><?php $weekarray=array("日","一","二","三","四","五","六"); echo date("Y-m-d H:i:s")." 星期".$weekarray[date("w")]." ".$config['sourceIp'];?></font>
+    <script>
+        const TBODY = document.querySelector('#list-table').querySelector('tbody');
+        const TRS = TBODY.querySelectorAll('tr');
+        let readme = null;
+        TRS.forEach(TR => {
+            const A = TR.querySelector('a');
+            if (A && A.href.indexOf('README.md') >= 0) {
+                readme = TR;
+                return;
+            }
+        });
+        if (readme) {
+            TBODY.removeChild(readme);
+        }
+    </script>
     </body>
     <link rel="stylesheet" href="//s0.pstatp.com/cdn/expire-1-M/github-markdown-css/3.0.1/github-markdown.min.css">
     <script type="text/javascript" src="//s0.pstatp.com/cdn/expire-1-M/marked/0.6.2/marked.min.js"></script>
