@@ -803,7 +803,7 @@ function render_list($path, $files)
             .list-table tr{height:40px}
             .list-table tr[data-to]:hover{background:#f1f1f1}
             .list-table tr:first-child{background:#fff}
-            .list-table td,.list-table th{padding:0 10px;text-align:left}
+            .list-table td,.list-table th{text-overflow:ellipsis;text-align:left;padding: 0 5px;white-space:nowrap;overflow:hidden;max-width:5em;}
             .list-table .size,.list-table .updated_at{text-align:right}
             .list-table .file ion-icon{font-size:15px;margin-right:5px;vertical-align:bottom}
             .list-table .size{border-radius:0px 25px 25px 0px}
@@ -820,13 +820,12 @@ function render_list($path, $files)
 
             @media only screen and (max-width:480px){
                 body{
-                    margin:3px;
+                    margin:5px;
                 }
                 .title{margin-bottom: 24px;font-size:1.5em;}
                 .list-wrapper{width:100%; margin-bottom:24px;}
                 .list-table {padding: 1em 0;}
-                .list-table .updated_at, .list-table .updated_at{display:none}
-                .list-table td, .list-table th{padding:0 10px;text-align:left;white-space:nowrap;overflow:auto;max-width:80px}
+                .list-table .updated_at{display:none}
             }
 
             .password {
