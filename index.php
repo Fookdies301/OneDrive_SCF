@@ -762,7 +762,7 @@ function render_list($path, $files)
     <!DOCTYPE html>
     <html lang="zh-cn">
     <head>
-        <!-- <script>if (location.protocol === 'http:') location.href = location.href.replace(/http/, 'https');</script> -->
+        <script>if (location.protocol === 'http:') location.href = location.href.replace(/http/, 'https');</script>
         <title><?php echo $pretitle;?> - <?php echo $config['sitename'];?></title>
         <!--
             帖子 ： https://www.hostloc.com/thread-561971-1-1.html
@@ -1197,7 +1197,59 @@ if (isset($files['children'])) foreach ($files['children'] as $file) {
 	</div>
     <?php }
     } ?>
-    <font color="#f7f7f9"><?php $weekarray=array("日","一","二","三","四","五","六"); echo date("Y-m-d H:i:s")." 星期".$weekarray[date("w")]." ".$config['sourceIp'];?></font>
+    <center><font id="date" color="black"><?php $weekarray=array("日","一","二","三","四","五","六"); echo date("Y-m-d H:i:s")." 星期".$weekarray[date("w")]." ".$config['sourceIp'];?></font></center>
+    <script>
+        setInterval(() => {
+            const addZero = (num) => num < 10 ? '0' + num : num;
+            const Week = (week) => {
+                switch (week) {
+                    case 0:
+                        return '日';
+                    case 1:
+                        return '一';
+                    case 2:
+                        return '二';
+                    case 3:
+                        return '三';
+                    case 4:
+                        return '四';
+                    case 5:
+                        return '五';
+                    case 6:
+                        return '六';
+                    default:
+                        return week;
+                }
+            };
+
+            const date = new Date();
+
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+
+            const week = date.getDay();
+
+            const element = document.querySelector('#date');
+            const ip = element.innerHTML.split(' ').pop();
+
+            let format = 'yyyy-mm-dd hh:MM:ss 星期w';
+            element.innerHTML = format
+                .replace('yyyy', year)
+                .replace('mm', addZero(month))
+                .replace('dd', addZero(day))
+                .replace('hh', addZero(hours))
+                .replace('MM', addZero(minutes))
+                .replace('ss', addZero(seconds))
+                .replace('w', Week(week))
+                + ' ' + ip;
+        }, 1000);
+    </script>
+
     <script>
         const TBODY = document.querySelector('#list-table').querySelector('tbody');
         const TRS = TBODY.querySelectorAll('tr');
